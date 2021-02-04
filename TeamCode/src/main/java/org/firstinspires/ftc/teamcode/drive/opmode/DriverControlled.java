@@ -13,29 +13,28 @@ import org.firstinspires.ftc.teamcode.drive.RobotHardware;
 public class DriverControlled extends OpMode{
 
     /* Declare OpMode members. */
-    RobotHardware robot       = new RobotHardware(); // use the class created to define a Pushbot's hardware
-    double          clawOffset  = 0.0 ;                  // Servo mid position
-    final double    CLAW_SPEED  = 0.02 ;                 // sets rate to move servo
+    RobotHardware robot       = new RobotHardware();
+
 
     /*
      * Code to run ONCE when the driver hits INIT
      */
     @Override
     public void init() {
-        /* Initialize the hardware variables.
-         * The init() method of the hardware class does all the work here
-         */
+
         robot.init(hardwareMap);
 
-        // Send telemetry message to signify robot waiting;
+
         telemetry.addData("Say", "Hello Driver");    //
     }
 
-    /*
-     * Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
-     */
+
+      //Code to run REPEATEDLY after the driver hits INIT, but before they hit PLAY
+
     @Override
     public void init_loop() {
+
+
     }
 
     /*
@@ -53,12 +52,14 @@ public class DriverControlled extends OpMode{
         double left;
         double right;
 
-        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+        //Normal Robot articulation
         robot.leftFront.setPower(gamepad1.left_stick_y);
         robot.leftRear.setPower(-gamepad1.left_stick_y);
         robot.rightFront.setPower(-gamepad1.right_stick_y);
         robot.rightRear.setPower(gamepad1.right_stick_y);
 
+
+        // Strafing setup
         if (gamepad1.left_bumper) {
             robot.leftFront.setPower(-.5);
             robot.leftRear.setPower(-.5);
@@ -72,17 +73,27 @@ public class DriverControlled extends OpMode{
             robot.rightRear.setPower(.5);
         }
 
+        //control the pitch of the wabble goal claw
+        if (gamepad1.dpad_up) {
+            robot.armPitch.setPosition(90);
+        }
+        if (gamepad1.dpad_down) {
+            robot.armPitch.setPosition(0);
+        }
 
-
-
-
-        // Move both servos to new position.  Assume servos are mirror image of each other.
+        //controlling the wabble goal claw
+        if(gamepad1.a) {
+            robot.claw.setPosition(90);
+        }
+        else {
+            robot.claw.setPosition(0);
+        }
 
 
 
 
         // Send telemetry message to signify robot running;
-        telemetry.addData("claw",  "Offset = %.2f", clawOffset);
+        telemetry.addData("claw",  "Offset = %.2f");
         telemetry.addData("left",  "%.2f");
         telemetry.addData("right", "%.2f");
     }
