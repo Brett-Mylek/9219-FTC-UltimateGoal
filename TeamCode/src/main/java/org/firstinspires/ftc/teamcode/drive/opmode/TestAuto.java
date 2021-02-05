@@ -53,19 +53,22 @@ public class TestAuto extends LinearOpMode {
                 // Don't burn CPU cycles busy-looping in this sample
                 sleep(50);
                 if (pipeline.position == FOUR) {
-
+                    sleep(5000);
+                    webcam.stopStreaming();
                     //code to run to zone C
                     telemetry.addLine("Running to zone C");
 
                 }
                 if (pipeline.position == ONE) {
-
+                    sleep(5000);
+                    webcam.stopStreaming();
                     //code to run to zone B
                     telemetry.addLine("Running to zone B");
 
                 }
                 if (pipeline.position == NONE) {
-
+                    sleep(5000);
+                    webcam.stopStreaming();
                     //code to run to zone A
                     telemetry.addLine("Running to zone A");
 
