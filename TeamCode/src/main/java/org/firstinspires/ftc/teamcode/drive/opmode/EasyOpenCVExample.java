@@ -19,12 +19,12 @@ import org.openftc.easyopencv.OpenCvPipeline;
 public class EasyOpenCVExample extends LinearOpMode
 {
     OpenCvCamera webcam;
-    SkystoneDeterminationPipeline pipeline;
+    RingDeterminationPipeline pipeline;
 
     @Override
     public void runOpMode()
     {
-        SkystoneDeterminationPipeline pipeline = new SkystoneDeterminationPipeline();
+        RingDeterminationPipeline pipeline = new RingDeterminationPipeline();
 
         int cameraMonitorViewId = hardwareMap.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hardwareMap.appContext.getPackageName());
         webcam = OpenCvCameraFactory.getInstance().createWebcam(hardwareMap.get(WebcamName.class, "Webcam 1"), cameraMonitorViewId);
@@ -57,7 +57,7 @@ public class EasyOpenCVExample extends LinearOpMode
         }
     }
 
-    public static class SkystoneDeterminationPipeline extends OpenCvPipeline
+    public static class RingDeterminationPipeline extends OpenCvPipeline
     {
         /*
          * An enum to define the skystone position
@@ -80,8 +80,8 @@ public class EasyOpenCVExample extends LinearOpMode
          */
         static final Point REGION1_TOPLEFT_ANCHOR_POINT = new Point(320,180);
 
-        static final int REGION_WIDTH = 60;
-        static final int REGION_HEIGHT = 40;
+        static final int REGION_WIDTH = 80;
+        static final int REGION_HEIGHT = 55;
 
         final int FOUR_RING_THRESHOLD = 150;
         final int ONE_RING_THRESHOLD = 135;
@@ -102,7 +102,7 @@ public class EasyOpenCVExample extends LinearOpMode
         int avg1;
 
         // Volatile since accessed by OpMode thread w/o synchronization
-        private volatile RingPosition position = RingPosition.FOUR;
+        public volatile RingPosition position = RingPosition.FOUR;
 
         /*
          * This function takes the RGB frame, converts to YCrCb,
