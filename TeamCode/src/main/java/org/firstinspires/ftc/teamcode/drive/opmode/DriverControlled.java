@@ -60,18 +60,27 @@ public class DriverControlled extends OpMode{
 
 
         // Strafing setup
-        if (gamepad1.left_bumper) {
+        if (gamepad1.right_bumper) {
             robot.leftFront.setPower(-.5);
             robot.leftRear.setPower(-.5);
             robot.rightFront.setPower(-.5);
             robot.rightRear.setPower(-.5);
         }
-        if (gamepad1.right_bumper) {
+        if (gamepad1.left_bumper) {
             robot.leftFront.setPower(.5);
             robot.leftRear.setPower(.5);
             robot.rightFront.setPower(.5);
             robot.rightRear.setPower(.5);
         }
+        //Spin Up the shooter
+
+        if (gamepad1.left_trigger > 0.5) {
+            robot.Launch.setPower(1);
+        }
+        else {
+            robot.Launch.setPower(0);
+        }
+
 
         //control the pitch of the wabble goal claw
         if (gamepad1.dpad_up) {
@@ -88,6 +97,15 @@ public class DriverControlled extends OpMode{
         else {
             robot.claw.setPosition(0);
         }
+
+        //Push rings into firing chamber
+        if (gamepad1.right_trigger > 0.5) {
+            robot.launchArm.setPosition(0);
+        }
+        else {
+            robot.launchArm.setPosition(90);
+        }
+
 
 
 
