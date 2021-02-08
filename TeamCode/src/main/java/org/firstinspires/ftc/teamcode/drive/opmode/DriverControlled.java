@@ -91,7 +91,7 @@ public class DriverControlled extends OpMode{
         if(gamepad1.a) {
             robot.claw.setPosition(90);
         }
-        else {
+        else if (gamepad1.b){
             robot.claw.setPosition(0);
         }
 
