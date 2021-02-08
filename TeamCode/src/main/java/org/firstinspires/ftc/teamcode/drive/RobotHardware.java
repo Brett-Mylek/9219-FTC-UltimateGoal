@@ -34,7 +34,7 @@ public class RobotHardware
         rightRear = hardwareMap.get(DcMotor.class, "rightRear");
         Launch =  hardwareMap.get(DcMotor.class, "Launch");
         Intake = hardwareMap.get(DcMotor.class, "Intake");
-        Conv = hardwareMap.get(DcMotor.class, "Intake");
+        Conv = hardwareMap.get(DcMotor.class, "Conv");
 
 
         armPitch = hardwareMap.get(Servo.class, "armPitch");

@@ -80,8 +80,8 @@ public class DriverControlled extends OpMode{
 
         // initiate the running of the intake
         if (gamepad1.x) {
-            robot.Intake.setPower(1);
-            robot.Conv.setPower(1);
+            robot.Intake.setPower(-1);
+            robot.Conv.setPower(-1);
         } else {
             robot.Intake.setPower(0);
             robot.Conv.setPower(0);
