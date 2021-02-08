@@ -73,33 +73,39 @@ public class DriverControlled extends OpMode{
 
         if (gamepad1.left_trigger > 0.5) {
             robot.Launch.setPower(1);
-        }
-        else {
+        } else {
             robot.Launch.setPower(0);
+        }
+
+
+        // initiate the running of the intake
+        if (gamepad1.x) {
+            robot.Intake.setPower(1);
+            robot.Conv.setPower(1);
+        } else {
+            robot.Intake.setPower(0);
+            robot.Conv.setPower(0);
         }
 
 
         //control the pitch of the wabble goal claw
         if (gamepad1.dpad_up) {
             robot.armPitch.setPosition(90);
-        }
-        if (gamepad1.dpad_down) {
+        } else if (gamepad1.dpad_down) {
             robot.armPitch.setPosition(0);
         }
 
         //controlling the wabble goal claw
         if(gamepad1.a) {
             robot.claw.setPosition(90);
-        }
-        else if (gamepad1.b){
+        } else if (gamepad1.b){
             robot.claw.setPosition(0);
         }
 
         //Push rings into firing chamber
         if (gamepad1.right_trigger > 0.5) {
             robot.launchArm.setPosition(0);
-        }
-        else {
+        } else {
             robot.launchArm.setPosition(90);
         }
 
