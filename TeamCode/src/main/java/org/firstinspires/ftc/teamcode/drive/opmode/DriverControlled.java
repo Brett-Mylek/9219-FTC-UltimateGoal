@@ -85,7 +85,7 @@ public class DriverControlled extends OpMode{
         } else {
             robot.Intake.setPower(0);
             robot.Conv.setPower(0);
-        }
+        }//updateed
 
 
         //control the pitch of the wabble goal claw
