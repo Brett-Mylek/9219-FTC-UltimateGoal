@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.drive.opmode;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
 import org.openftc.easyopencv.OpenCvCameraRotation;
@@ -20,6 +21,7 @@ public class TestAuto extends LinearOpMode {
     public void runOpMode() {
              OpenCvCamera webcam;
              EasyOpenCVExample.RingDeterminationPipeline pipeline = new EasyOpenCVExample.RingDeterminationPipeline();
+             SampleMecanumDrive driveTrain = new SampleMecanumDrive(hardwareMap);
 
 
 
@@ -71,7 +73,17 @@ public class TestAuto extends LinearOpMode {
                     webcam.stopStreaming();
                     //code to run to zone A
                     telemetry.addLine("Running to zone A");
-
+                    /*
+                    run these in this order:
+                    Localization test
+                    Velocity Pid Tuner
+                    Feed Forward tuner
+                    Straight test
+                    Track Width tuner
+                    Turn test
+                    Spline test
+                    Follower Pid
+                     */
                 }
             }
 
