@@ -57,13 +57,13 @@ public class DriverControlled extends OpMode{
 
 
         // Strafing setup
-        if (gamepad1.right_bumper) {
+        if (gamepad1.left_bumper) {
             robot.leftFront.setPower(-.5);
             robot.leftRear.setPower(-.5);
             robot.rightFront.setPower(-.5);
             robot.rightRear.setPower(-.5);
         }
-        if (gamepad1.left_bumper) {
+        if (gamepad1.right_bumper) {
             robot.leftFront.setPower(.5);
             robot.leftRear.setPower(.5);
             robot.rightFront.setPower(.5);
@@ -72,7 +72,7 @@ public class DriverControlled extends OpMode{
         //Spin Up the shooter
 
         if (gamepad1.left_trigger > 0.5) {
-            robot.Launch.setPower(1);
+            robot.Launch.setPower(.88);
         } else {
             robot.Launch.setPower(0);
         }
@@ -81,16 +81,15 @@ public class DriverControlled extends OpMode{
         // initiate the running of the intake
         if (gamepad1.x) {
             robot.Intake.setPower(-1);
-            robot.Conv.setPower(-1);
         } else {
             robot.Intake.setPower(0);
-            robot.Conv.setPower(0);
+
         }//updateed
 
 
         //control the pitch of the wabble goal claw
         if (gamepad1.dpad_up) {
-            robot.armPitch.setPosition(90);
+            robot.armPitch.setPosition(80);
         } else if (gamepad1.dpad_down) {
             robot.armPitch.setPosition(0);
         }
