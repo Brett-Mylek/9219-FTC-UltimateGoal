@@ -68,6 +68,11 @@ public class RobotHardware
         Intake.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         Conv.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        leftFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        leftRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        rightRear.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         armPitch.setPosition(0);
         claw.setPosition(0);
         launchArm.setPosition(90);

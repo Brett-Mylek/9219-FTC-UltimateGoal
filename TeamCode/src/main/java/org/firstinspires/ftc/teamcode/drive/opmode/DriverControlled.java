@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.drive.RobotHardware;
 
 
-@TeleOp(name="Pushbot: Teleop Tank", group="Pushbot")
+@TeleOp(name="TeleOp", group="Pushbot")
 
 public class DriverControlled extends OpMode{
 
@@ -50,24 +50,24 @@ public class DriverControlled extends OpMode{
         double right;
 
         //Normal Robot articulation
-        robot.leftFront.setPower(gamepad1.left_stick_y);
-        robot.leftRear.setPower(-gamepad1.left_stick_y);
-        robot.rightFront.setPower(-gamepad1.right_stick_y);
-        robot.rightRear.setPower(gamepad1.right_stick_y);
+        robot.leftFront.setPower(gamepad1.left_stick_y * .75);
+        robot.leftRear.setPower(-gamepad1.left_stick_y * .75);
+        robot.rightFront.setPower(-gamepad1.right_stick_y * .75);
+        robot.rightRear.setPower(gamepad1.right_stick_y * .75);
 
 
         // Strafing setup
         if (gamepad1.left_bumper) {
-            robot.leftFront.setPower(-.5);
-            robot.leftRear.setPower(-.5);
-            robot.rightFront.setPower(-.5);
-            robot.rightRear.setPower(-.5);
+            robot.leftFront.setPower(-.8);
+            robot.leftRear.setPower(-.8);
+            robot.rightFront.setPower(-.8);
+            robot.rightRear.setPower(-.8);
         }
         if (gamepad1.right_bumper) {
-            robot.leftFront.setPower(.5);
-            robot.leftRear.setPower(.5);
-            robot.rightFront.setPower(.5);
-            robot.rightRear.setPower(.5);
+            robot.leftFront.setPower(.8);
+            robot.leftRear.setPower(.8);
+            robot.rightFront.setPower(.8);
+            robot.rightRear.setPower(.8);
         }
         //Spin Up the shooter
 
